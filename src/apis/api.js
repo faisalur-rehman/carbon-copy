@@ -29,3 +29,6 @@ export function addRentalHistory(data) {
 export function getAllOrders() {
   return api.get(`/rental-history/get-all`, config);
 }
+export function addProduct(data) {
+  return api.post(`/product/add`, data, config);
+}
