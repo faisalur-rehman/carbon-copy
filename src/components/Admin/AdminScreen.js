@@ -22,8 +22,11 @@ const AdminScreen = ({
                   <div class="back_to_dashboard">
                     <strong>All Rental Histories:</strong>
                   </div>
-                  <div onClick={() => setOpenModal(true)}>
-                    <button style={{ padding: 5, margin: "5px 0" }}>
+                  <div>
+                    <button
+                      style={{ padding: 5, margin: "5px 0" }}
+                      onClick={() => setOpenModal(true)}
+                    >
                       Add Product
                     </button>
                   </div>
