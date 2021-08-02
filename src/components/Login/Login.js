@@ -18,7 +18,7 @@ const Login = () => {
       localStorage.setItem("token", data.token);
       localStorage.setItem("isAdmin", data.isAdmin);
 
-      history.push("/main");
+      data.isAdmin ? history.push("/admin") : history.push("/main");
     } catch (_) {}
   }
   console.log("error", error);

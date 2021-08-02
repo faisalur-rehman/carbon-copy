@@ -5,6 +5,7 @@ import Signup from "./components/Signup/Signup";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Product from "./components/Product/Product";
+import Admin from "./components/Admin/Admin";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path="/product/:id">
             <Product />
+          </Route>
+          <Route path="/admin">
+            <Admin />
           </Route>
         </Switch>
       </Router>

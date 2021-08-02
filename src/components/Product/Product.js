@@ -43,8 +43,7 @@ const Product = () => {
   async function handleSubmit({ formValues }) {
     console.log("form values", formValues);
     let formData = new FormData();
-    let image = [imagePicture, imageSignature];
-    formData.append("image", image);
+    formData.append("image", imagePicture);
     formData.append("firstName", formValues.firstName);
     formData.append("middleName", formValues.middleName);
     formData.append("lastName", formValues.lastName);
