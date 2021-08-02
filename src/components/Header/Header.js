@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 const Header = () => {
+  const history = useHistory();
+  const [token, setToken] = useState();
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+  }, [token]);
+  function handleLogout() {
+    localStorage.getItem("token") && localStorage.removeItem("token");
+    history.push("/");
+  }
   return (
     <div>
       <header>
@@ -10,12 +20,23 @@ const Header = () => {
             <div class="nav_bar">
               <ul>
                 <li>
-                  <a href="cart.html">
+                  <Link to="/cart">
                     Cart<i class="fas fa-shopping-cart"></i>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#1">Login</a>
+                  {localStorage.getItem("token") && (
+                    <p
+                      style={{
+                        cursor: "pointer",
+                        fontSize: "1.4rem",
+                        fontWeight: "bolder",
+                      }}
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </p>
+                  )}
                 </li>
               </ul>
             </div>

@@ -6,6 +6,7 @@ import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Product from "./components/Product/Product";
 import Admin from "./components/Admin/Admin";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path="/product/:id">
             <Product />
+          </Route>
+          <Route path="/cart">
+            <Cart />
           </Route>
           <Route path="/admin">
             <Admin />
