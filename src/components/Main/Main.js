@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import MainScreen from "./MainScreen";
 import * as CarbonApi from "../../apis/api";
 import useApi from "../../hooks/useApi";
 
 const Main = () => {
-  const { error, data, request } = useApi(CarbonApi.getAllProduct);
+  const { data, request } = useApi(CarbonApi.getAllProduct);
   useEffect(() => {
     async function fetchData() {
       try {

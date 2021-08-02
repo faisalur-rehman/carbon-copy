@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import img1 from "../../assets/image/thumb01.jpg";
-import img2 from "../../assets/image/thumb02.jpg";
-import img3 from "../../assets/image/thumb03.jpg";
 
 const MainScreen = ({ data }) => {
   console.log("data", data);
