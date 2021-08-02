@@ -4,6 +4,7 @@ import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
+import Product from "./components/Product/Product";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route path="/main">
             <Main />
+          </Route>
+          <Route path="/product/:id">
+            <Product />
           </Route>
         </Switch>
       </Router>

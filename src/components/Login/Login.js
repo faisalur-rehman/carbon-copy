@@ -31,7 +31,6 @@ const Login = () => {
         setEmail={setEmail}
         password={password}
         setPassword={setPassword}
-        // response={error}
         error={error}
       />
     </div>

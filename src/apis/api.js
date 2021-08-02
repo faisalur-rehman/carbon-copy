@@ -14,7 +14,7 @@ export function loginUser(data) {
   return api.post(`/user/login`, { ...data });
 }
 export function getAllProduct() {
-  return api.post(`/product/get-all`, config);
+  return api.get(`/product/get-all`, config);
 }
 export function getSingleProduct(data) {
   return api.post(`/product/get-single`, { ...data }, config);
@@ -23,17 +23,6 @@ export function getSingleProduct(data) {
 export function registerUser(data) {
   return api.post(`/user/register`, data);
 }
-// export function createPassword(data) {
-//   return api.post(`/user/create-password`, { ...data });
-// }
-// export function addAffiliate(data) {
-//   return api.post(
-//     `/affiliate/add`,
-//     { ...data },
-//     {
-//       headers: {
-//         Authorization: localStorage.getItem("adminToken"),
-//       },
-//     }
-//   );
-// }
+export function addRentalHistory(data) {
+  return api.post(`/rental-history/add`, data);
+}
