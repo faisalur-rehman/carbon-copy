@@ -32,3 +32,10 @@ export function getAllOrders() {
 export function addProduct(data) {
   return api.post(`/product/add`, data, config);
 }
+export function deleteRentalHistory(data) {
+  return api.delete(
+    `/rental-history/delete`,
+    { rentalHistoryId: data },
+    config
+  );
+}

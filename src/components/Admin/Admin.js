@@ -14,6 +14,7 @@ const initialValues = {
 const Admin = () => {
   const allOrders = useApi(CarbonApi.getAllOrders);
   const addProduct = useApi(CarbonApi.addProduct);
+  const deleteProduct = useApi(CarbonApi.deleteRentalHistory);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -26,6 +27,12 @@ const Admin = () => {
     fetchData();
     //eslint-disable-next-line
   }, []);
+  async function handleDelete(id) {
+    try {
+      const { data } = await deleteProduct.request(id);
+      console.log("delete product", data);
+    } catch (_) {}
+  }
 
   async function handleSubmit({ formValues }) {
     console.log("form", formValues);
@@ -42,6 +49,7 @@ const Admin = () => {
         handleSubmit={handleSubmit}
         addProduct={addProduct}
         allOrders={allOrders}
+        handleDelete={handleDelete}
       />
     </div>
   );

@@ -7,6 +7,7 @@ const AdminScreen = ({
   initialValues,
   handleSubmit,
   addProduct,
+  handleDelete,
 }) => {
   const [openModal, setOpenModal] = useState(false);
 
@@ -59,7 +60,10 @@ const AdminScreen = ({
                               </td>
                               <td>
                                 <Link>
-                                  <i class="fas fa-trash-alt"></i>
+                                  <i
+                                    class="fas fa-trash-alt"
+                                    onClick={() => handleDelete(prod._id)}
+                                  ></i>
                                 </Link>
                               </td>
                             </tr>
