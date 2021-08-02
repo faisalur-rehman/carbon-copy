@@ -7,7 +7,7 @@ const LoginForm = ({
   password,
   setEmail,
   setPassword,
-  response,
+  error,
 }) => {
   return (
     <div>
@@ -24,6 +24,7 @@ const LoginForm = ({
                     placeholder="Email"
                     value={email}
                     onChange={({ target }) => setEmail(target.value)}
+                    required
                   />
                 </div>
                 <div className="input_field">
@@ -33,6 +34,7 @@ const LoginForm = ({
                     placeholder="Password"
                     value={password}
                     onChange={({ target }) => setPassword(target.value)}
+                    required
                   />
                 </div>
                 <div className="submit_btn">
@@ -40,10 +42,14 @@ const LoginForm = ({
                 </div>
               </div>
             </form>
+            {error.data && (
+              <p style={{ color: "red", margin: "10px 0" }}>
+                {error.data.message}
+              </p>
+            )}
             <p>
               Don't have an account? <Link to="/sign-up">Sign Up</Link>
             </p>
-            <p style={{ color: "red" }}>{response}</p>
           </div>
         </div>
       </section>
