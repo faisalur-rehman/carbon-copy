@@ -30,11 +30,6 @@ const AdminScreen = ({
                       Add Product
                     </button>
                   </div>
-                  <div class="list_selecter">
-                    <select class="form-control" name="state" id="maxRows">
-                      <option value="5000">Show ALL Rows</option>
-                    </select>
-                  </div>
                   <div class="show_product">
                     <table id="table-id">
                       <tr>
