@@ -19,6 +19,19 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
+#nprogress .bar {
+  background: rgb(255, 0, 0) !important;
+}
+#nprogress .peg {
+  box-shadow: 0 0 10px rgb(253, 0, 0), 0 0 5px rgb(255, 1, 1) !important;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: rgb(250, 0, 0) !important;
+  border-left-color: rgb(255, 0, 0) !important;
+}
+
 .container {
   max-width: 1170px;
   margin: 0px auto;
