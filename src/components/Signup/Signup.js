@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { registerUser } from "../../apis/api";
 import useApi from "../../hooks/useApi";
 import SignupForm from "./SignupForm";
 import * as CarbonApi from "../../apis/api";
