@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LoginForm = ({
   handleSubmit,
@@ -39,6 +40,9 @@ const LoginForm = ({
                 </div>
               </div>
             </form>
+            <p>
+              Don't have an account? <Link to="/sign-up">Sign Up</Link>
+            </p>
             <p style={{ color: "red" }}>{response}</p>
           </div>
         </div>

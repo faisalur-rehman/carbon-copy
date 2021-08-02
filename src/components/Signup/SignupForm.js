@@ -2,6 +2,7 @@ import React from "react";
 import AppForm from "../app-form/AppForm";
 import "./Signup.css";
 import { Field } from "formik";
+import { Link } from "react-router-dom";
 
 export default function SignupForm({
   allAffiliate,
@@ -35,11 +36,14 @@ function FormFields({ allAffiliate, response }) {
             </div>
             <div className="input_field">
               <label>Password</label>
-              <Field name="password" placeholder="Password" />
+              <Field name="password" type="password" placeholder="Password" />
             </div>
             <div className="submit_btn">
               <button type="submit">Sign Up</button>
             </div>
+            <p>
+              Already have an account? <Link to="/">Login</Link>
+            </p>
             <p style={{ color: "red" }}>{response}</p>
           </div>
         </div>

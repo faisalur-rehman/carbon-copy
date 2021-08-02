@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { getAffiliate, registerUser } from "../../apis/api";
+import React, { useState } from "react";
+import { registerUser } from "../../apis/api";
+import useApi from "../../hooks/useApi";
 import SignupForm from "./SignupForm";
+import * as CarbonApi from "../../apis/api";
 
 const initialValues = {
   name: "",
@@ -10,25 +12,13 @@ const initialValues = {
 };
 
 const Signup = () => {
-  const [allAffiliate, setAllAffiliate] = useState();
+  const register = useApi(CarbonApi.registerUser);
   const [response, setResponse] = useState("");
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const { data } = await getAffiliate();
-        console.log("affiliate", data);
-        setAllAffiliate(data.affliate);
-      } catch (error) {
-        console.log(error.response);
-      }
-    }
-    fetchData();
-  }, []);
 
   async function handleSubmit({ formValues }) {
     console.log("formvalues", formValues);
     try {
-      const { data } = await registerUser(formValues);
+      const { data } = await register.request(formValues);
       console.log("register", data);
       setResponse(data.message);
     } catch (error) {
@@ -39,14 +29,11 @@ const Signup = () => {
 
   return (
     <div>
-      {allAffiliate && (
-        <SignupForm
-          allAffiliate={allAffiliate}
-          initialValues={initialValues}
-          handleSubmit={handleSubmit}
-          response={response}
-        />
-      )}
+      <SignupForm
+        initialValues={initialValues}
+        handleSubmit={handleSubmit}
+        response={response}
+      />
     </div>
   );
 };
