@@ -91,6 +91,7 @@ const Product = () => {
         handleSubmit={handleSubmit}
         setImagePicture={setImagePicture}
         setImageSignature={setImageSignature}
+        singleProduct={singleProduct}
       />
     </Layout>
   );

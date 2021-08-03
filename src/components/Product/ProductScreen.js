@@ -8,18 +8,20 @@ export default function ProductScreen({
   initialValues,
   setImagePicture,
   setImageSignature,
+  singleProduct,
 }) {
   return (
     <AppForm initialValues={initialValues} handleSubmit={handleSubmit}>
       <FormFields
         setImagePicture={setImagePicture}
         setImageSignature={setImageSignature}
+        singleProduct={singleProduct}
       />
     </AppForm>
   );
 }
 
-function FormFields({ setImageSignature, setImagePicture }) {
+function FormFields({ setImageSignature, setImagePicture, singleProduct }) {
   function handleImageSignature({ target }) {
     setImageSignature(target.files[0]);
   }
@@ -29,7 +31,9 @@ function FormFields({ setImageSignature, setImagePicture }) {
   return (
     <section class="product_section">
       <div class="container">
-        <h2>Order product 1</h2>
+        {singleProduct.data && (
+          <h2>Order {singleProduct.data.product.productName}</h2>
+        )}
 
         <div class="product_detail">
           <div class="single_product">
