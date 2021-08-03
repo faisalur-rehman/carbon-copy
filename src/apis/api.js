@@ -27,6 +27,13 @@ export function registerUser(data) {
 export function addRentalHistory(data) {
   return api.post(`/rental-history/add`, data);
 }
+export function getSingleRentalHistory(data) {
+  return api.post(
+    `/rental-history/get-single`,
+    { rentalHistoryId: data },
+    config
+  );
+}
 export function getAllOrders() {
   return api.get(`/rental-history/get-all`, config);
 }

@@ -9,6 +9,7 @@ const AdminScreen = ({
   addProduct,
   handleDelete,
   downloadFile,
+  downloadImages,
 }) => {
   const [openModal, setOpenModal] = useState(false);
 
@@ -36,6 +37,12 @@ const AdminScreen = ({
                     >
                       Download All Orders (.txt)
                     </button>
+                    <button
+                      style={{ padding: 5, margin: "5px 5px" }}
+                      onClick={downloadImages}
+                    >
+                      Download User Images
+                    </button>
                   </div>
                   <div class="show_product">
                     <table id="table-id">
@@ -44,7 +51,10 @@ const AdminScreen = ({
                         <th>Renter Name</th>
                         <th>City</th>
                         <th>Product Price</th>
-                        <th>Delete History</th>
+                        <th>
+                          <i className="fas fa-eye"></i>
+                        </th>
+                        <th>Delete Product</th>
                       </tr>
                       <tbody>
                         {allOrders.data &&
@@ -55,12 +65,15 @@ const AdminScreen = ({
                               <td>{prod.city}</td>
                               <td>${prod.price}</td>
                               <td>
-                                <Link>
-                                  <i
-                                    class="fas fa-trash-alt"
-                                    onClick={() => handleDelete(prod._id)}
-                                  ></i>
+                                <Link to={`/history/${prod._id}`}>
+                                  View History
                                 </Link>
+                              </td>
+                              <td>
+                                <i
+                                  className="fas fa-trash-alt"
+                                  onClick={() => handleDelete(prod._id)}
+                                ></i>
                               </td>
                             </tr>
                           ))}
