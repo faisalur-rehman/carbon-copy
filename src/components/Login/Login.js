@@ -22,7 +22,7 @@ const Login = () => {
     } catch (_) {}
   }
   console.log("error", error);
-  data && console.log("data", data);
+  data && console.log("data", data.token);
   return (
     <div>
       <LoginForm

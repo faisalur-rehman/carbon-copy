@@ -31,6 +31,7 @@ const Admin = () => {
     try {
       const { data } = await deleteProduct.request(id);
       console.log("delete product", data);
+      window.location.reload();
     } catch (_) {}
   }
 

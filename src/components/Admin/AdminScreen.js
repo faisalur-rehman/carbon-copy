@@ -34,28 +34,19 @@ const AdminScreen = ({
                     <table id="table-id">
                       <tr>
                         <th>Product Name</th>
-                        <th>View Product</th>
-                        <th>Edit Detail</th>
-                        <th>Delete Product</th>
+                        <th>Renter Name</th>
+                        <th>City</th>
+                        <th>Product Price</th>
+                        <th>Delete History</th>
                       </tr>
                       <tbody>
                         {allOrders.data &&
                           allOrders.data.rentalHistories.map((prod) => (
                             <tr key={prod._id}>
-                              <td>{prod.productTitle}</td>
-                              <td>
-                                <Link onclick="view_product_detail()">
-                                  <i class="fas fa-eye"></i>
-                                </Link>
-                              </td>
-                              <td>
-                                <Link onclick="edit_product()">
-                                  <i
-                                    class="fa fa-edit"
-                                    // onClick={() => handleModal(prod._id)}
-                                  ></i>
-                                </Link>
-                              </td>
+                              <td>{prod.productId.productName}</td>
+                              <td>{prod.firstName + " " + prod.lastName}</td>
+                              <td>{prod.city}</td>
+                              <td>${prod.price}</td>
                               <td>
                                 <Link>
                                   <i
