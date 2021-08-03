@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import * as CarbonApi from "../../apis/api";
 import useApi from "../../hooks/useApi";
 import Layout from "../Layout/Layout";
-
 import "./Admin.css";
 import AdminScreen from "./AdminScreen";
 
@@ -29,8 +28,7 @@ const Admin = () => {
   }, []);
   async function handleDelete(id) {
     try {
-      const { data } = await deleteProduct.request(id);
-      console.log("delete product", data);
+      await deleteProduct.request(id);
       window.location.reload();
     } catch (_) {}
   }
@@ -40,6 +38,20 @@ const Admin = () => {
       await addProduct.request({ ...formValues });
     } catch (_) {}
   }
+  const downloadFile = () => {
+    fetch("https://carbon-copies-restapi.herokuapp.com/download").then(
+      (response) => {
+        response.blob().then((blob) => {
+          let url = window.URL.createObjectURL(blob);
+          let a = document.createElement("a");
+          a.href = url;
+          a.download = "orders.txt";
+          a.click();
+        });
+        //window.location.href = response.url;
+      }
+    );
+  };
 
   return (
     <Layout>
@@ -49,6 +61,7 @@ const Admin = () => {
         addProduct={addProduct}
         allOrders={allOrders}
         handleDelete={handleDelete}
+        downloadFile={downloadFile}
       />
     </Layout>
   );

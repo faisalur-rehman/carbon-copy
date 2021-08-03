@@ -21,7 +21,6 @@ const Login = () => {
       data.isAdmin ? history.push("/admin") : history.push("/main");
     } catch (_) {}
   }
-  console.log("error", error);
   data && console.log("data", data.token);
   return (
     <div>

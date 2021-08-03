@@ -8,6 +8,7 @@ const AdminScreen = ({
   handleSubmit,
   addProduct,
   handleDelete,
+  downloadFile,
 }) => {
   const [openModal, setOpenModal] = useState(false);
 
@@ -28,6 +29,12 @@ const AdminScreen = ({
                       onClick={() => setOpenModal(true)}
                     >
                       Add Product
+                    </button>
+                    <button
+                      style={{ padding: 5, margin: "5px 5px" }}
+                      onClick={downloadFile}
+                    >
+                      Download All Orders (.txt)
                     </button>
                   </div>
                   <div class="show_product">

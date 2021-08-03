@@ -7,7 +7,7 @@ const CartScreen = ({ data }) => {
       <section class="cart_section">
         <div class="container">
           <div class="cart_start">
-            <h2>cart:</h2>
+            <h2>Cart:</h2>
             <table>
               <tr>
                 <th>Product Name</th>
@@ -19,7 +19,7 @@ const CartScreen = ({ data }) => {
                 <td>{product.product && data.product.productName}</td>
                 <td>{product.weight}</td>
                 <td>{product.price}</td>
-                <td>2</td>
+                <td>1</td>
               </tr>
             </table>
           </div>
