@@ -73,6 +73,7 @@ const Product = () => {
           },
         }
       );
+      localStorage.setItem("product", JSON.stringify(data.rentalHistory));
       history.push({
         pathname: "/cart",
         state: {

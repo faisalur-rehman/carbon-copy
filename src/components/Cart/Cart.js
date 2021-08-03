@@ -3,11 +3,10 @@ import CartScreen from "./CartScreen";
 import "./Cart.css";
 import Layout from "../Layout/Layout";
 
-const Cart = (props) => {
-  console.log("props", props);
+const Cart = () => {
   return (
     <Layout>
-      <CartScreen data={props.location.state.data} />
+      <CartScreen />
     </Layout>
   );
 };

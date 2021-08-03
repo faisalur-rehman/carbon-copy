@@ -1,6 +1,7 @@
 import React from "react";
 
 const CartScreen = ({ data }) => {
+  const product = JSON.parse(localStorage.getItem("product"));
   return (
     <div>
       <section class="cart_section">
@@ -15,9 +16,9 @@ const CartScreen = ({ data }) => {
                 <th>Product Quantity</th>
               </tr>
               <tr>
-                <td>{data.product && data.product.productName}</td>
-                <td>{data.weight}</td>
-                <td>{data.price}</td>
+                <td>{product.product && data.product.productName}</td>
+                <td>{product.weight}</td>
+                <td>{product.price}</td>
                 <td>2</td>
               </tr>
             </table>
@@ -34,7 +35,7 @@ const CartScreen = ({ data }) => {
                 <div class="sub_total">
                   <div class="calculation">
                     <span>Subtotal :</span>
-                    <strong>${data.price}</strong>
+                    <strong>${product.price}</strong>
                   </div>
                 </div>
 
@@ -47,7 +48,7 @@ const CartScreen = ({ data }) => {
                 <div class="total_price">
                   <div class="calculation">
                     <span>Total :</span>
-                    <strong>${data.price + 20}</strong>
+                    <strong>${product.price + 20}</strong>
                   </div>
                 </div>
                 <div class="checkout">
