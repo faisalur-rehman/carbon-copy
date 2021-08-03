@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import * as CarbonApi from "../../apis/api";
 import useApi from "../../hooks/useApi";
+import Layout from "../Layout/Layout";
 
 import "./Admin.css";
 import AdminScreen from "./AdminScreen";
@@ -41,7 +42,7 @@ const Admin = () => {
   }
 
   return (
-    <div>
+    <Layout>
       <AdminScreen
         initialValues={initialValues}
         handleSubmit={handleSubmit}
@@ -49,7 +50,7 @@ const Admin = () => {
         allOrders={allOrders}
         handleDelete={handleDelete}
       />
-    </div>
+    </Layout>
   );
 };
 

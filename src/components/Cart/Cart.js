@@ -1,12 +1,14 @@
 import React from "react";
 import CartScreen from "./CartScreen";
 import "./Cart.css";
+import Layout from "../Layout/Layout";
 
-const Cart = () => {
+const Cart = (props) => {
+  console.log("props", props);
   return (
-    <div>
-      <CartScreen />
-    </div>
+    <Layout>
+      <CartScreen data={props.location.state.data} />
+    </Layout>
   );
 };
 

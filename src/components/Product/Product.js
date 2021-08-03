@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import "./Product.css";
 import ProductScreen from "./ProductScreen";
 import axios from "axios";
 import useApi from "../../hooks/useApi";
 import * as CarbonApi from "../../apis/api";
+import Layout from "../Layout/Layout";
 
 const initialValues = {
   firstName: "",
@@ -25,6 +26,7 @@ const initialValues = {
 };
 
 const Product = () => {
+  const history = useHistory();
   const { id } = useParams();
   const singleProduct = useApi(CarbonApi.getSingleProduct);
   const [imagePicture, setImagePicture] = useState();
@@ -41,8 +43,6 @@ const Product = () => {
   }, []);
 
   async function handleSubmit({ formValues }) {
-    console.log("images", imagePicture, imageSignature);
-    console.log("form values", formValues);
     let formData = new FormData();
     formData.append("image", imagePicture);
     formData.append("image", imageSignature);
@@ -73,21 +73,26 @@ const Product = () => {
           },
         }
       );
-      console.log(data);
+      history.push({
+        pathname: "/cart",
+        state: {
+          data: data.rentalHistory,
+        },
+      });
       //   setResponse(data.message);
     } catch (error) {
       console.log(error.response);
     }
   }
   return (
-    <div>
+    <Layout>
       <ProductScreen
         initialValues={initialValues}
         handleSubmit={handleSubmit}
         setImagePicture={setImagePicture}
         setImageSignature={setImageSignature}
       />
-    </div>
+    </Layout>
   );
 };
 

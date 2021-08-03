@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Header = () => {
   const history = useHistory();
@@ -19,11 +19,6 @@ const Header = () => {
             <h2>Carbon Copies</h2>
             <div class="nav_bar">
               <ul>
-                <li>
-                  <Link to="/cart">
-                    Cart<i class="fas fa-shopping-cart"></i>
-                  </Link>
-                </li>
                 <li>
                   {localStorage.getItem("token") && (
                     <p

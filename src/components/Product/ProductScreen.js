@@ -44,15 +44,15 @@ function FormFields({ setImageSignature, setImagePicture }) {
             </div>
             <div class="name_fields">
               <label>First Name</label>
-              <Field name="firstName" type="text" />
+              <Field name="firstName" type="text" required />
             </div>
             <div class="name_fields">
               <label>Middle Name</label>
-              <Field name="middleName" type="text" />
+              <Field name="middleName" type="text" required />
             </div>
             <div class="name_fields">
               <label>Last Name</label>
-              <Field name="lastName" type="text" />
+              <Field name="lastName" type="text" required />
             </div>
             <h3>
               ID Address <span>*</span>
@@ -63,15 +63,15 @@ function FormFields({ setImageSignature, setImagePicture }) {
             </p>
             <div class="name_fields">
               <label>Street</label>
-              <Field name="street" type="text" />
+              <Field name="street" type="text" required />
             </div>
             <div class="name_fields">
               <label>city</label>
-              <Field name="city" type="text" />
+              <Field name="city" type="text" required />
             </div>
             <div class="name_fields">
               <label>Zip Code</label>
-              <Field name="zipCode" type="number" />
+              <Field name="zipCode" type="number" required />
             </div>
           </div>
 
@@ -80,7 +80,7 @@ function FormFields({ setImageSignature, setImagePicture }) {
               <label>
                 ID DOB-Month <span>*</span>
               </label>
-              <Field as="select" name="dobMonth">
+              <Field as="select" name="dobMonth" required>
                 <option selected>select option</option>
                 <option value="1">January</option>
                 <option value="2">February</option>
@@ -101,7 +101,7 @@ function FormFields({ setImageSignature, setImagePicture }) {
               <label>
                 ID DOB-Day <span>*</span>
               </label>
-              <Field as="select" name="dobDate">
+              <Field as="select" name="dobDate" required>
                 <option selected>select option</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -140,7 +140,7 @@ function FormFields({ setImageSignature, setImagePicture }) {
               <label>
                 ID DOB-Year <span>*</span>
               </label>
-              <Field as="select" name="dobYear">
+              <Field as="select" name="dobYear" required>
                 <option selected>select option</option>
                 <option value="1990">1990</option>
                 <option value="1991">1991</option>
@@ -179,7 +179,7 @@ function FormFields({ setImageSignature, setImagePicture }) {
               <label>
                 Height(Feet) <span>*</span>
               </label>
-              <Field as="select" name="heightFeet">
+              <Field as="select" name="heightFeet" required>
                 <option selected>select option</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
@@ -190,7 +190,7 @@ function FormFields({ setImageSignature, setImagePicture }) {
               <label>
                 Height(inches) <span>*</span>
               </label>
-              <Field as="select" name="heightInches">
+              <Field as="select" name="heightInches" required>
                 <option selected>select option</option>
                 <option value="32">32</option>
                 <option value="36">36</option>
@@ -205,7 +205,7 @@ function FormFields({ setImageSignature, setImagePicture }) {
                 {" "}
                 Weight(lbs) <span>*</span>
               </label>
-              <Field as="select" name="weight">
+              <Field as="select" name="weight" required>
                 <option selected>select option</option>
                 <option value="200">200</option>
                 <option value="250">250</option>
@@ -226,10 +226,8 @@ function FormFields({ setImageSignature, setImagePicture }) {
               <label>
                 Hair Color <span>*</span>
               </label>
-              <Field as="select" name="hairColor">
-                <option disabled selected>
-                  select option
-                </option>
+              <Field as="select" name="hairColor" required>
+                <option selected>select option</option>
                 <option value="Black">Black</option>
                 <option value="White">White</option>
                 <option value="Gray">Gray</option>
@@ -240,7 +238,7 @@ function FormFields({ setImageSignature, setImagePicture }) {
               <label>
                 Eye Color <span>*</span>
               </label>
-              <Field as="select" name="eyeColor">
+              <Field as="select" name="eyeColor" required>
                 <option selected>select option</option>
                 <option value="Brown">Brown</option>
                 <option value="Blue">Blue</option>
@@ -253,11 +251,11 @@ function FormFields({ setImageSignature, setImagePicture }) {
               </label>
               <div class="select_gender">
                 <div class="gender">
-                  <Field type="radio" name="gender" value="Male" />
+                  <Field type="radio" name="gender" value="Male" required />
                   <label>Male</label>
                 </div>
                 <div class="gender">
-                  <Field type="radio" name="gender" value="Female" />
+                  <Field type="radio" name="gender" value="Female" required />
                   <label>female</label>
                 </div>
               </div>
@@ -265,14 +263,14 @@ function FormFields({ setImageSignature, setImagePicture }) {
             <h3>ID Picture</h3>
             <div class="name_fields">
               <label>ID Picture</label>
-              <input type="file" onChange={handleImagePicture} />
+              <input type="file" onChange={handleImagePicture} required />
               <label>(Max file size 256 MB)</label>
             </div>
             <h3>ID Signature</h3>
             <p>If none uploaded we will provide one.</p>
             <div class="name_fields">
               <label>ID signature</label>
-              <input type="file" onChange={handleImageSignature} />
+              <input type="file" onChange={handleImageSignature} required />
               <label>(Max file size 256 MB)</label>
             </div>
           </div>
