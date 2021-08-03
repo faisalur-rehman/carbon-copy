@@ -34,7 +34,6 @@ export function addProduct(data) {
   return api.post(`/product/add`, data, config);
 }
 export function deleteRentalHistory(data) {
-  console.log("in api", data, localStorage.getItem("token"));
   return api.delete("/rental-history/delete", {
     data: { rentalHistoryId: data },
     headers: { Authorization: localStorage.getItem("token") },

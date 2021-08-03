@@ -18,8 +18,7 @@ const Admin = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const { data } = allOrders.request();
-        console.log("all orders", data);
+        allOrders.request();
       } catch (error) {
         console.log(error.console);
       }
@@ -36,10 +35,8 @@ const Admin = () => {
   }
 
   async function handleSubmit({ formValues }) {
-    console.log("form", formValues);
     try {
-      const { data } = await addProduct.request({ ...formValues });
-      console.log("add product", data);
+      await addProduct.request({ ...formValues });
     } catch (_) {}
   }
 
