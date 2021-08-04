@@ -73,7 +73,10 @@ const Product = () => {
           },
         }
       );
+      console.log("data", data);
       localStorage.setItem("product", JSON.stringify(data.rentalHistory));
+      localStorage.setItem("productDetail", JSON.stringify(data.product));
+      // localStorage.setItem("productName", data.product.productName);
       history.push({
         pathname: "/cart",
         state: {

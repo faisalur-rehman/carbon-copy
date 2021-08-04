@@ -6,8 +6,7 @@ const api = axios.create({
 
 const config = {
   headers: {
-    Authorization:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTAwZTBiOWQ3NjM0MjFiYTg4NWI1YzYiLCJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNzk2OTYwOH0.UKme5W1Hn72wVgzER8HERTygB1KaH9nC8I8KzROjTS4",
+    Authorization: localStorage.getItem("token"),
   },
 };
 

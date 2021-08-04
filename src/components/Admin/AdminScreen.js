@@ -9,7 +9,6 @@ const AdminScreen = ({
   addProduct,
   handleDelete,
   downloadFile,
-  downloadImages,
 }) => {
   const [openModal, setOpenModal] = useState(false);
 
@@ -36,12 +35,6 @@ const AdminScreen = ({
                       onClick={downloadFile}
                     >
                       Download All Orders (.txt)
-                    </button>
-                    <button
-                      style={{ padding: 5, margin: "5px 5px" }}
-                      onClick={downloadImages}
-                    >
-                      Download User Images
                     </button>
                   </div>
                   <div class="show_product">

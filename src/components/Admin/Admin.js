@@ -4,6 +4,7 @@ import useApi from "../../hooks/useApi";
 import Layout from "../Layout/Layout";
 import "./Admin.css";
 import AdminScreen from "./AdminScreen";
+var fileDownload = require("react-file-download");
 
 const initialValues = {
   productName: "",
@@ -39,17 +40,9 @@ const Admin = () => {
     } catch (_) {}
   }
   const downloadFile = () => {
-    fetch("https://carbon-copies-restapi.herokuapp.com/download").then(
-      (response) => {
-        response.blob().then((blob) => {
-          let url = window.URL.createObjectURL(blob);
-          let a = document.createElement("a");
-          a.href = url;
-          a.download = "orders.txt";
-          a.click();
-        });
-        //window.location.href = response.url;
-      }
+    fileDownload(
+      JSON.stringify(allOrders.data.rentalHistories),
+      "allOrders.txt"
     );
   };
 

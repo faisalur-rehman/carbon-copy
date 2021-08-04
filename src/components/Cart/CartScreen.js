@@ -2,6 +2,8 @@ import React from "react";
 
 const CartScreen = ({ data }) => {
   const product = JSON.parse(localStorage.getItem("product"));
+  const productDetail = JSON.parse(localStorage.getItem("productDetail"));
+  console.log("product", product);
   return (
     <div>
       <section className="cart_section">
@@ -16,7 +18,7 @@ const CartScreen = ({ data }) => {
                 <th>Product Quantity</th>
               </tr>
               <tr>
-                <td>{product.product && data.product.productName}</td>
+                <td>{productDetail.productName}</td>
                 <td>{product.weight}</td>
                 <td>${product.price}</td>
                 <td>1</td>
@@ -39,22 +41,14 @@ const CartScreen = ({ data }) => {
                   </div>
                 </div>
 
-                <div className="shipping">
-                  <div className="calculation">
-                    <span>Shipping charges :</span>
-                    <strong>$20</strong>
-                  </div>
-                </div>
                 <div className="total_price">
                   <div className="calculation">
                     <span>Total :</span>
-                    <strong>${product.price + 20}</strong>
+                    <strong>${product.price}</strong>
                   </div>
                 </div>
                 <div className="checkout">
-                  <a href="https://www.blockonomics.co/pay-url/43e335e76b0949cb">
-                    Proceed to check out
-                  </a>
+                  <a href={productDetail.paymentLink}>Proceed to check out</a>
                 </div>
               </div>
             </div>

@@ -1,8 +1,12 @@
+import axios from "axios";
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import * as CarbonApi from "../../../apis/api";
 import useApi from "../../../hooks/useApi";
 import Layout from "../../Layout/Layout";
+// const download = require("image-downloader");
+// import download from "image-downloader";
+import { saveAs } from "file-saver";
 
 const SingleRentalHistory = () => {
   const { id } = useParams();
@@ -14,19 +18,39 @@ const SingleRentalHistory = () => {
     fetchData();
     //eslint-disable-next-line
   }, []);
-  const downloadImages = () => {
-    fetch("https://carbon-copies-restapi.herokuapp.com/download").then(
-      (response) => {
-        response.blob().then((blob) => {
-          let url = window.URL.createObjectURL(blob);
-          let a = document.createElement("a");
-          a.href = url;
-          a.download = "images";
-          a.click();
-        });
-        //window.location.href = response.url;
-      }
-    );
+  const downloadImages = (img) => {
+    axios({
+      url: "https://carbon-copies-restapi.herokuapp.com/image_1628053278730.jpg",
+      method: "GET",
+      responseType: "blob",
+    }).then((response) => {
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "image.txt");
+      document.body.appendChild(link);
+      link.click();
+    });
+    // -->
+    // saveAs(
+    //   `https://carbon-copies-restapi.herokuapp.com/image_1628053278730.jpg`,
+    //   "image.jpg"
+    // );
+
+    // -->
+
+    // axios({
+    //   url: `https://carbon-copies-restapi.herokuapp.com/${img}`,
+    //   method: "GET",
+    //   responseType: "blob",
+    // }).then((response) => {
+    //   const url = window.URL.createObjectURL(new Blob([response.data]));
+    //   const link = document.createElement("a");
+    //   link.href = url;
+    //   link.setAttribute("download", "image.txt");
+    //   document.body.appendChild(link);
+    //   link.click();
+    // });
   };
   console.log("history", singleHistory.data);
   return (
@@ -44,7 +68,11 @@ const SingleRentalHistory = () => {
                     <div>
                       <button
                         style={{ padding: 5, margin: "5px 5px" }}
-                        onClick={downloadImages}
+                        onClick={() =>
+                          downloadImages(
+                            singleHistory.data.rentalHistory.idPicture
+                          )
+                        }
                       >
                         Download User Images
                       </button>
