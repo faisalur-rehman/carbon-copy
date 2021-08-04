@@ -3,9 +3,7 @@ import { useParams } from "react-router-dom";
 import * as CarbonApi from "../../../apis/api";
 import useApi from "../../../hooks/useApi";
 import Layout from "../../Layout/Layout";
-// const download = require("image-downloader");
-// import download from "image-downloader";
-// import { saveAs } from "file-saver";
+
 var FileSaver = require("file-saver");
 
 const SingleRentalHistory = () => {
@@ -25,26 +23,11 @@ const SingleRentalHistory = () => {
     );
   }
   const downloadImages = (img) => {
-    // axios({
-    //   url: "https://carbon-copies-restapi.herokuapp.com/image_1628053278730.jpg",
-    //   method: "GET",
-    //   responseType: "blob",
-    // }).then((response) => {
-    //   const url = window.URL.createObjectURL(new Blob([response.data]));
-    //   const link = document.createElement("a");
-    //   link.href = url;
-    //   link.setAttribute("download", "image.txt");
-    //   document.body.appendChild(link);
-    //   link.click();
-    // });
-
-    // -->
     FileSaver.saveAs(
       `https://carbon-copies-restapi.herokuapp.com/${img}`,
       "histories.jpg"
     );
   };
-  console.log("history", singleHistory.data);
   return (
     <Layout>
       {singleHistory.data && (

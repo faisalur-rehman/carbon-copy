@@ -52,6 +52,10 @@ export default function SimpleModal({
                 <label>Product Price</label>
                 <Field name="productPrice" type="number" />
               </div>
+              <div class="name_fields">
+                <label>Payment Link</label>
+                <Field name="paymentLink" />
+              </div>
               <div>
                 <button style={{ padding: 5 }}>Add Product</button>
               </div>

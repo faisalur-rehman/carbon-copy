@@ -10,6 +10,7 @@ const initialValues = {
   productName: "",
   productDescription: "",
   productPrice: "",
+  paymentLink: "",
 };
 
 const Admin = () => {
